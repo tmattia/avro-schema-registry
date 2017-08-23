@@ -19,12 +19,5 @@ module BaseAPI
     default_format :schema_registry_v1
 
     helpers ::Helpers::ErrorHelper
-
-    use Grape::Middleware::OptionalAuth,
-        type: :http_basic,
-        realm: 'API Authorization',
-        proc: ->(_username, password) do
-          password == Rails.configuration.x.app_password
-        end
   end
 end
